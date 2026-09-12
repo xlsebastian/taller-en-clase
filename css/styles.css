@@ -1,0 +1,148 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f5f7fa;
+  color: #1a1a1a;
+  line-height: 1.6;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 32px;
+  background-color: white;
+  border-bottom: 1px solid #dde3ea;
+}
+
+nav a{
+    margin-left: 16 px;
+    text-decoration: none;
+    color: #2563eb;
+    font-weight: 600;
+}
+
+nav a:hover{
+    text-decoration: underline;
+}
+
+nav a:first-child{
+    margin-left: 0;
+}
+
+/* ===== Layout responsive con Flexbox ===== */
+.contenedor {
+  display: flex;
+  flex-direction: column; /* apilado en móvil */
+  gap: 24px;
+  padding: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .contenedor {
+    flex-direction: row; /* en fila desde tablet/desktop */
+  }
+}
+
+/* Selector por class */
+.tarjeta {
+  background-color: white;
+  border-radius: 12px;
+  padding: 24px;
+  flex: 1;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#sobre-mi {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Selector por class reutilizado en varios botones */
+.boton {
+  padding: 10px 16px;
+  border-radius: 8px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  font-weight: 600;
+  align-self: flex-start;
+}
+
+/* Pseudo-clase: hover en botones */
+.boton:hover {
+  background-color: #1d4ed8;
+  cursor: pointer;
+}
+
+/* Selector por id: detalle único, no reutilizable */
+#btn-modo {
+  font-style: italic;
+}
+
+form {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+input {
+  flex: 1;
+  min-width: 160px;
+  padding: 10px;
+  border: 1px solid #dde3ea;
+  border-radius: 8px;
+}
+
+/* Pseudo-clase: estado focus */
+input:focus {
+  outline: 2px solid #2563eb;
+  border-color: transparent;
+}
+
+.oculto {
+  display: none;
+}
+
+#mensaje-confirmacion {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+/* ===== Tema oscuro (activado desde JS) ===== */
+body.modo-oscuro {
+  background-color: #0f1115;
+  color: #e8eaed;
+}
+
+body.modo-oscuro header,
+body.modo-oscuro .tarjeta {
+  background-color: #171a21;
+}
+
+body.modo-oscuro input {
+  background-color: #0f1115;
+  color: #e8eaed;
+  border-color: #2a2f3a;
+}
